@@ -5,7 +5,9 @@ import {ArticleEntity} from "../../core/models/article/article-entity";
 import {UUID} from "angular2-uuid";
 import {ArticleService} from "../../core/services/article.service";
 import {ArticleRepository} from "../../core/repositories/article.repository";
-import {isLoggedIn$} from "../../core/repositories/auth.repository";
+import {DatePipe} from "@angular/common";
+import {userName$} from "../../core/repositories/auth.repository";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-create-article',
@@ -13,10 +15,16 @@ import {isLoggedIn$} from "../../core/repositories/auth.repository";
 })
 export class CreateArticleComponent implements OnInit, OnDestroy {
 
+  private userName: string
+  private subscription: Subscription;
+
   constructor(
     private readonly articleService: ArticleService,
     private readonly articleRepository: ArticleRepository,
-  ) { }
+    private readonly datePipe: DatePipe
+  ) {
+    this.subscription = userName$.subscribe(result => this.userName = result)
+  }
   form = new FormGroup({
     title: new FormControl(null, Validators.required),
     description: new FormControl(null, Validators.required),
@@ -41,6 +49,7 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() : void {
+    this.subscription.unsubscribe()
     this.editor.destroy()
   }
 
@@ -50,8 +59,8 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
       headline: this.form.controls['title'].value,
       description: this.form.controls['description'].value,
       articleBody: toHTML(this.form.controls['editorControl'].value),
-      createDate: Date.now().toString(),
-      author: 'Ryan Houben'
+      createDate: this.datePipe.transform(Date.now(), 'MM-dd-yyyy'),
+      author: this.userName
     }
 
     this.articleService.createArticle(newArticle).subscribe(

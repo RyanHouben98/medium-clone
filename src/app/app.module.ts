@@ -14,6 +14,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgxEditorModule} from "ngx-editor";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
+import {DatePipe} from "@angular/common";
+import {AuthorArticleListComponent} from "./components/auther-article-list/author-article-list.component";
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import {LoginComponent} from "./components/login/login.component";
     ArticleComponent,
     CreateArticleComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AuthorArticleListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,11 @@ import {LoginComponent} from "./components/login/login.component";
     SharedModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     ReactiveFormsModule,
-    NgxEditorModule
+    NgxEditorModule,
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

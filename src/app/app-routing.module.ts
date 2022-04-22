@@ -6,10 +6,12 @@ import {CreateArticleComponent} from "./components/create-article/create-article
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
 import {AuthGuard} from "./components/guards/auth.guard";
+import {AuthorArticleListComponent} from "./components/auther-article-list/author-article-list.component";
 
 const routes: Routes = [
   { path: '', component: FeedComponent, pathMatch: 'full' },
   { path: 'new-article', component: CreateArticleComponent, canActivate: [AuthGuard]},
+  { path: 'articles/:author', component: AuthorArticleListComponent},
   { path: 'article/:author/:id', component: ArticleComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }

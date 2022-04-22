@@ -1,11 +1,10 @@
 import {Injectable} from "@angular/core";
 import {createStore, select, withProps} from "@ngneat/elf";
-import {state} from "@angular/animations";
 
 const authStore = createStore(
   { name: 'auth' },
   withProps({
-    name: null,
+    userName: null,
     emailAddress: null,
     isLoggedIn: false
   })
@@ -13,20 +12,21 @@ const authStore = createStore(
 
 export const user$ = authStore.pipe(select((state) => state));
 export const isLoggedIn$ = authStore.pipe(select((state) => state.isLoggedIn));
+export const userName$ = authStore.pipe(select((state) => state.userName))
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthRepository {
-  signInUser(name: string, emailAddress: string) : void {
+  signInUser(emailAddress: string) : void {
     authStore.update((state) => ({
-      ...state, name: name, emailAddress: emailAddress, isLoggedIn: true
+      ...state, userName: emailAddress, emailAddress: emailAddress, isLoggedIn: true
     }))
   }
 
   signOutUser() : void {
     authStore.update((state) => ({
-      ...state, name: null, emailAddress: null, isLoggedIn: false
+      ...state, userName: null, emailAddress: null, isLoggedIn: false
     }))
   }
 }

@@ -19,7 +19,7 @@ export class LoginComponent {
   ) { }
 
   onSubmit() : void {
-    this.authRepository.signInUser("John Doe", this.form.controls['email'].value)
+    this.authRepository.signInUser(this.form.controls['email'].value)
     this.router.navigate(['/'])
   }
 }

@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h4>Articles by {{author}}</h4>
+</div>
+<hr />
+
+<p *ngIf="(articles | async).length == 0; else articleList" >
+{{author}} has no articles yet.
+</p>
+
+<ng-template #articleList>
+  <app-feed-item *ngFor="let article of articles | async" [article]="article"></app-feed-item>
+</ng-template>

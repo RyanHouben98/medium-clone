@@ -2,10 +2,9 @@ import {createStore} from "@ngneat/elf";
 import {ArticleModel} from "../models/article/article-model";
 import {
   addEntities,
-  getEntity,
   hasEntity,
   selectAllEntities,
-  selectEntity,
+  selectEntity, selectManyByPredicate,
   setEntities,
   withEntities
 } from "@ngneat/elf-entities";
@@ -17,6 +16,7 @@ const articleStore = createStore(
 );
 
 export const articles$ = articleStore.pipe(selectAllEntities());
+export const articlesByAuthor$ = (author:string) => articleStore.pipe(selectManyByPredicate((entity) => entity.author === author))
 export const hasArticle = (id:string) => articleStore.query(hasEntity(id));
 export const articleById$ = (id:string) => articleStore.pipe(selectEntity(id));
 
