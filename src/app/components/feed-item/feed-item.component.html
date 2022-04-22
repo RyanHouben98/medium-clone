@@ -1,0 +1,12 @@
+<div class="card mb-2 mt-2">
+  <div class="card-header">
+    {{article.author}}, {{article.createDate}}
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{{article.headline}}</h3>
+    {{article.description}}
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="'article/' + article.author + '/' + article.id">Read more</a>
+  </div>
+</div>

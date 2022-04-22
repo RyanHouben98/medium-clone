@@ -1,0 +1,21 @@
+<h3>Sign in</h3>
+<hr />
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input class="form-control" placeholder="john.doe@email.com" formControlName="email">
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" formControlName="password" />
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary">Sign in</button>
+</form>

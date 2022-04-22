@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h4>Global feed</h4>
+  <a routerLink="new-article">Create your own article</a>
+</div>
+<hr />
+<app-feed-item *ngFor="let article of articles | async" [article]="article"></app-feed-item>

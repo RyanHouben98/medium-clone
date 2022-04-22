@@ -1,0 +1,38 @@
+<h3>Create an article</h3>
+<hr />
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label">Title</label>
+        <input class="form-control" type="text" formControlName="title"/>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" rows="5" formControlName="description"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="editor">
+        <ngx-editor-menu
+          [editor]="editor"
+          [toolbar]="toolbar"
+        >
+        </ngx-editor-menu>
+        <ngx-editor
+          [editor]="editor"
+          placeholder="Tell me your story..."
+          formControlName="editorControl"
+        > </ngx-editor>
+        <ngx-editor-floating-menu [editor]="editor"></ngx-editor-floating-menu>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success" type="submit">Create story</button>
+</form>

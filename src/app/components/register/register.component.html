@@ -1,0 +1,41 @@
+<h3>Sign up</h3>
+<hr />
+<form>
+  <div class="row mb-3">
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label class="form-label">First name</label>
+        <input class="form-control" placeholder="John" type="text" formControlName="firstName" />
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label class="form-label">Last name</label>
+        <input class="form-control" placeholder="Doe" type="text" formControlName="lastName" />
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input class="form-control" placeholder="john.doe@email.com" formControlName="emailAddress">
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-control" type="password" formControlName="password" />
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="form-group">
+        <label class="form-label">Confirm password</label>
+        <input class="form-control" type="password" formControlName="confirmPassword" />
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary">Sign up</button>
+</form>

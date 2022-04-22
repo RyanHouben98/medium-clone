@@ -1,0 +1,10 @@
+<p>
+  <span class="fw-light">{{(article | async)?.author}}</span>
+  <br/>
+  <span class="fw-lighter">{{(article | async)?.createDate}}</span>
+</p>
+<hr />
+<h1>{{(article | async)?.headline}}</h1>
+
+<div [innerHTML]="(article | async)?.articleBody"></div>
+
