@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {InMemoryDbService} from "angular-in-memory-web-api";
 import {ArticleEntity} from "../models/article/article-entity";
+import {CommentEntity} from "../models/comment/comment-entity";
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,25 @@ export class DataService implements InMemoryDbService {
         createDate: '11-04-2022'
       }
     ]
-    return {articles:articles}
+
+    const comments: CommentEntity[] = [
+      {
+        id: '1',
+        commentBody: "Test comment 1",
+        author: 'ryanhouben1998@gmail.com',
+        articleId: 'efea95e6-4fc1-487b-a065-3a9f93992c37'
+      },
+      {
+        id: '2',
+        commentBody: "Test comment 2",
+        author: 'ryanhouben1998@gmail.com',
+        articleId: 'efea95e6-4fc1-487b-a065-3a9f93992c37'
+      }
+    ]
+    return {
+      articles:articles,
+      comments:comments
+    }
   }
 
 }

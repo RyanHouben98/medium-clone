@@ -1,5 +1,5 @@
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
-import {isLoggedIn$} from "../../core/repositories/auth.repository";
+import {isLoggedIn$} from "../repositories/auth.repository";
 import {Injectable} from "@angular/core";
 import {map, Observable} from "rxjs";
 
@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
 
     isLoggedIn$.subscribe(result => {
       if (result === false) {
-        this.router.navigate(['login'])
+        this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
       }
     })
 

@@ -5,8 +5,8 @@ import {ArticleComponent} from "./components/article/article.component";
 import {CreateArticleComponent} from "./components/create-article/create-article.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
-import {AuthGuard} from "./components/guards/auth.guard";
 import {AuthorArticleListComponent} from "./components/auther-article-list/author-article-list.component";
+import {AuthGuard} from "./core/guards/auth.guard";
 
 const routes: Routes = [
   { path: '', component: FeedComponent, pathMatch: 'full' },
