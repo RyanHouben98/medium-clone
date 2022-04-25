@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {isLoggedIn$} from "../../core/repositories/auth.repository";
 import {CommentModel} from "../../core/models/comment/comment-model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {commentsByArticleId} from "../../core/repositories/comment.repository";
+import {commentsByArticleId$, countCommentsByArticleId$} from "../../core/repositories/comment.repository";
 
 @Component({
   selector: 'app-comment-list',
@@ -12,6 +12,7 @@ import {commentsByArticleId} from "../../core/repositories/comment.repository";
 export class CommentListComponent {
   public isLoggedIn: Observable<boolean> = isLoggedIn$;
   public comments: Observable<CommentModel[]>;
+  public commentCount: number;
 
   private readonly id: string;
 
@@ -21,7 +22,8 @@ export class CommentListComponent {
   ) {
     this.id = this.route.snapshot.paramMap.get("id")
 
-    this.comments = commentsByArticleId(this.id);
+    this.comments = commentsByArticleId$(this.id);
+    this.commentCount = countCommentsByArticleId$(this.id);
   }
 
 

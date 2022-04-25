@@ -1,4 +1,4 @@
-<h5>Comments</h5>
+<h5>Comments ({{commentCount}})</h5>
 <hr />
 <div *ngIf="isLoggedIn | async; else nogLoggedIn">
   <app-component *ngFor="let comment of comments | async" [comment]="comment"></app-component>
