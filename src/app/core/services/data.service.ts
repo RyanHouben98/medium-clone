@@ -44,7 +44,7 @@ export class DataService implements InMemoryDbService {
         id: '2',
         commentBody: "Test comment 2",
         author: 'ryanhouben1998@gmail.com',
-        articleId: 'efea95e6-4fc1-487b-a065-3a9f93992c37'
+        replyId: '1'
       }
     ]
     return {

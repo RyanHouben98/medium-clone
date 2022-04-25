@@ -18,6 +18,7 @@ import {DatePipe} from "@angular/common";
 import {AuthorArticleListComponent} from "./components/auther-article-list/author-article-list.component";
 import {CommentListComponent} from "./components/comment-list/comment-list.component";
 import {CommentComponent} from "./components/comment/comment.component";
+import {CreateCommentComponent} from "./components/create-comment/create-comment.component";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {CommentComponent} from "./components/comment/comment.component";
     LoginComponent,
     AuthorArticleListComponent,
     CommentListComponent,
-    CommentComponent
+    CommentComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule,

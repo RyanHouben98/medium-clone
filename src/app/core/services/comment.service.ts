@@ -1,9 +1,9 @@
 import {HttpClient} from "@angular/common/http";
 import {CommentMapper} from "../mappers/comment.mapper";
 import {map, Observable} from "rxjs";
-import {CommentModel} from "../models/comment/comment-model";
 import {CommentEntity} from "../models/comment/comment-entity";
 import {Injectable} from "@angular/core";
+import {setComments} from "../repositories/comment.repository";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,12 @@ export class CommentService {
   private readonly mapper = new CommentMapper();
 
   constructor(
-    private readonly httpClient: HttpClient
+    private readonly httpClient: HttpClient,
   ) { }
 
-  public getAllComments() : Observable<CommentModel[]> {
+  public getAllComments() : Observable<void> {
     return this.httpClient.get<CommentEntity[]>(this.apiUrl)
       .pipe(map(result => result.map(this.mapper.mapFrom)))
+      .pipe(map(setComments))
   }
 }

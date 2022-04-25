@@ -8,7 +8,8 @@ export class CommentMapper extends Mapper<CommentEntity, CommentModel> {
       id: param.id,
       commentBody: param.commentBody,
       author: param.author,
-      articleId: param.articleId
+      articleId: param.articleId,
+      replyId: param.replyId
     }
   }
 
@@ -17,7 +18,8 @@ export class CommentMapper extends Mapper<CommentEntity, CommentModel> {
       id: param.id,
       commentBody: param.commentBody,
       author: param.author,
-      articleId: param.articleId
+      articleId: param.articleId,
+      replyId: param.replyId
     }
   }
 

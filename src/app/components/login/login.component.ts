@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthRepository} from "../../core/repositories/auth.repository";
+import {signInUser} from "../../core/repositories/auth.repository";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit{
   private returnUrl: string;
 
   constructor(
-    private readonly authRepository: AuthRepository,
     private readonly router: Router,
     private readonly route: ActivatedRoute,
   ) { }
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() : void {
-    this.authRepository.signInUser(this.form.controls['email'].value)
+    signInUser(this.form.controls['email'].value)
     this.router.navigateByUrl(this.returnUrl);
   }
 }

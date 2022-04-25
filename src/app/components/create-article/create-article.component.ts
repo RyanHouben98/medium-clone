@@ -4,10 +4,10 @@ import {Editor, toHTML, Toolbar} from "ngx-editor";
 import {ArticleEntity} from "../../core/models/article/article-entity";
 import {UUID} from "angular2-uuid";
 import {ArticleService} from "../../core/services/article.service";
-import {ArticleRepository} from "../../core/repositories/article.repository";
 import {DatePipe} from "@angular/common";
 import {userName$} from "../../core/repositories/auth.repository";
 import {Subscription} from "rxjs";
+import {addArticle} from "../../core/repositories/article.repository";
 
 @Component({
   selector: 'app-create-article',
@@ -20,7 +20,6 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly articleService: ArticleService,
-    private readonly articleRepository: ArticleRepository,
     private readonly datePipe: DatePipe
   ) {
     this.subscription = userName$.subscribe(result => this.userName = result)
@@ -63,9 +62,6 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
       author: this.userName
     }
 
-    this.articleService.createArticle(newArticle).subscribe(
-      result => this.articleRepository.addArticle(result)
-    )
-
+    this.articleService.createArticle(newArticle).subscribe()
   }
 }

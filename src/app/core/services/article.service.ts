@@ -4,6 +4,7 @@ import {map, Observable} from "rxjs";
 import {ArticleModel} from "../models/article/article-model";
 import {ArticleMapper} from "../mappers/article.mapper";
 import {ArticleEntity} from "../models/article/article-entity";
+import {addArticle, setArticles} from "../repositories/article.repository";
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +18,15 @@ export class ArticleService {
     private readonly httpClient: HttpClient
   ) { }
 
-  public getAllArticles() : Observable<ArticleModel[]> {
+  public getAllArticles() : Observable<void> {
     return this.httpClient.get<ArticleEntity[]>(this.apiUrl)
       .pipe(map((result:ArticleEntity[]) => result.map(this.mapper.mapFrom)))
+      .pipe(map(setArticles))
   }
 
-  public createArticle(article: ArticleEntity) : Observable<ArticleModel> {
+  public createArticle(article: ArticleEntity) : Observable<void> {
     return this.httpClient.post(this.apiUrl, article)
       .pipe(map(this.mapper.mapFrom))
+      .pipe(map(addArticle))
   }
 }

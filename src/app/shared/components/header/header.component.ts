@@ -1,6 +1,6 @@
-import {Component, OnInit} from "@angular/core";
-import {Observable, of} from "rxjs";
-import {AuthRepository, user$} from "../../../core/repositories/auth.repository";
+import {Component} from "@angular/core";
+import {Observable} from "rxjs";
+import {signOutUser, user$} from "../../../core/repositories/auth.repository";
 
 @Component({
   selector: 'app-header',
@@ -9,11 +9,7 @@ import {AuthRepository, user$} from "../../../core/repositories/auth.repository"
 export class HeaderComponent {
   user: Observable<any> = user$
 
-  constructor(
-    private readonly authRepository: AuthRepository
-  ) { }
-
   logOut() : void {
-    this.authRepository.signOutUser();
+    signOutUser()
   }
 }

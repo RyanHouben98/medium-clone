@@ -1,5 +1,5 @@
-import {Component} from "@angular/core";
-import {Observable} from "rxjs";
+import {Component, OnInit} from "@angular/core";
+import {Observable, of} from "rxjs";
 import {isLoggedIn$} from "../../core/repositories/auth.repository";
 import {CommentModel} from "../../core/models/comment/comment-model";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -9,7 +9,7 @@ import {commentsByArticleId$, countCommentsByArticleId$} from "../../core/reposi
   selector: 'app-comment-list',
   templateUrl: './comment-list.component.html'
 })
-export class CommentListComponent {
+export class CommentListComponent implements OnInit {
   public isLoggedIn: Observable<boolean> = isLoggedIn$;
   public comments: Observable<CommentModel[]>;
   public commentCount: number;
@@ -23,8 +23,10 @@ export class CommentListComponent {
     this.id = this.route.snapshot.paramMap.get("id")
 
     this.comments = commentsByArticleId$(this.id);
-    this.commentCount = countCommentsByArticleId$(this.id);
   }
 
+  ngOnInit() : void {
+    this.commentCount = countCommentsByArticleId$(this.id);
+  }
 
 }
