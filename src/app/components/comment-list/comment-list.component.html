@@ -1,9 +1,0 @@
-<h5>Comments ({{commentCount}})</h5>
-<hr />
-<div *ngIf="isLoggedIn | async; else nogLoggedIn">
-  <app-create-comment></app-create-comment>
-  <app-component *ngFor="let comment of comments | async" [comment]="comment"></app-component>
-</div>
-<ng-template #nogLoggedIn>
-  <span>You must be logged in to read comments. Click <a routerLink="/login" [queryParams]="{ returnUrl: router.routerState.snapshot.url }">here</a> to login.</span>
-</ng-template>

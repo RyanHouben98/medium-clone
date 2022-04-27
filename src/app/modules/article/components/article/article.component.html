@@ -6,3 +6,5 @@
 <hr />
 <h1>{{(article | async)?.headline}}</h1>
 <div [innerHTML]="(article | async)?.articleBody"></div>
+<hr />
+<app-comment-list></app-comment-list>

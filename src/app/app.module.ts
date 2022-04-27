@@ -11,11 +11,9 @@ import {NgxEditorModule} from "ngx-editor";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
 import {DatePipe} from "@angular/common";
-import {CommentListComponent} from "./components/comment-list/comment-list.component";
-import {CommentComponent} from "./components/comment/comment.component";
-import {CreateCommentComponent} from "./components/create-comment/create-comment.component";
 import {ArticleModule} from "./modules/article/article.module";
 import {FeedModule} from "./modules/feed/feed.module";
+import {CommentModule} from "./modules/comment/comment.module";
 
 
 @NgModule({
@@ -23,9 +21,6 @@ import {FeedModule} from "./modules/feed/feed.module";
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    CommentListComponent,
-    CommentComponent,
-    CreateCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +29,7 @@ import {FeedModule} from "./modules/feed/feed.module";
     SharedModule,
     ArticleModule,
     FeedModule,
+    CommentModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     ReactiveFormsModule,
     NgxEditorModule,

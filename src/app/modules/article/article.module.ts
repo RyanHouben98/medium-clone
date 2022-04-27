@@ -7,6 +7,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {CreateArticleComponent} from "./components/create-article/create-article.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxEditorModule} from "ngx-editor";
+import {CommentModule} from "../comment/comment.module";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {NgxEditorModule} from "ngx-editor";
     SharedModule,
     ReactiveFormsModule,
     NgxEditorModule,
+    CommentModule
   ],
   declarations: [
     ArticleComponent,

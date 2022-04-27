@@ -1,8 +1,8 @@
 import {Component, Input} from "@angular/core";
-import {CommentModel} from "../../core/models/comment/comment-model";
+import {CommentModel} from "../../../../core/models/comment/comment-model";
 
 @Component({
-  selector: 'app-component',
+  selector: 'app-comment',
   templateUrl: './comment.component.html'
 })
 export class CommentComponent {

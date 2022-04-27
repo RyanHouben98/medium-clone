@@ -18,8 +18,6 @@ const commentStore = createStore(
 export const commentsByArticleId$ = (id:string) => commentStore.pipe(selectManyByPredicate((entity:CommentModel) => entity.articleId === id))
 export const countCommentsByArticleId$ = (id:string) => commentStore.query(getEntitiesCountByPredicate((entity:CommentModel) => entity.articleId === id))
 
-export const getRepliesByCommentId$ = (id:string) => commentStore.pipe(selectManyByPredicate((entity:CommentModel) => entity.replyId === id))
-
 /*
  * Comment mutations
  */

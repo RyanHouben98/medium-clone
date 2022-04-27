@@ -9,7 +9,6 @@ export class CommentMapper extends Mapper<CommentEntity, CommentModel> {
       commentBody: param.commentBody,
       author: param.author,
       articleId: param.articleId,
-      replyId: param.replyId
     }
   }
 
@@ -19,7 +18,6 @@ export class CommentMapper extends Mapper<CommentEntity, CommentModel> {
       commentBody: param.commentBody,
       author: param.author,
       articleId: param.articleId,
-      replyId: param.replyId
     }
   }
 
