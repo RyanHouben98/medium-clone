@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {ArticleModel} from "../models/article/article-model";
 import {ArticleMapper} from "../mappers/article.mapper";
 import {ArticleEntity} from "../models/article/article-entity";
 import {addArticle, setArticles} from "../repositories/article.repository";

@@ -4,7 +4,7 @@
 <hr />
 
 <p *ngIf="(articles | async).length == 0; else articleList" >
-{{author}} has no articles yet.
+  {{author}} has no articles yet.
 </p>
 
 <ng-template #articleList>

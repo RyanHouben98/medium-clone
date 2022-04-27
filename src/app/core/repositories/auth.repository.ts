@@ -20,8 +20,6 @@ export function signInUser(emailAddress: string) : void {
 }
 
 export function signOutUser() : void {
-  authStore.update((state) => ({
-    ...state, userName: null, emailAddress: null, isLoggedIn: false
-  }))
+  authStore.reset()
 }
 

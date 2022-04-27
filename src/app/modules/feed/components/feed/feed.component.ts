@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {Observable} from "rxjs";
-import {ArticleModel} from "../../core/models/article/article-model";
-import {articles$} from "../../core/repositories/article.repository";
+import {ArticleModel} from "../../../../core/models/article/article-model";
+import {articles$} from "../../../../core/repositories/article.repository";
 
 @Component({
   selector: 'app-feed',

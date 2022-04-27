@@ -1,15 +1,14 @@
 import {Component} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
-import {ArticleModel} from "../../core/models/article/article-model";
-import {articlesByAuthor$} from "../../core/repositories/article.repository";
+import {ArticleModel} from "../../../../core/models/article/article-model";
+import {ActivatedRoute} from "@angular/router";
+import {articlesByAuthor$} from "../../../../core/repositories/article.repository";
 
 @Component({
-  selector: 'app-author-article-list',
-  templateUrl: './auther-article-list.component.html'
+  selector: 'app-article-author-list',
+  templateUrl: 'article-author-list.component.html'
 })
-export class AuthorArticleListComponent {
-
+export class ArticleAuthorListComponent {
   public author: string;
   public articles: Observable<ArticleModel[]>;
 

@@ -2,6 +2,7 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {HeaderComponent} from "./components/header/header.component";
 import {RouterModule} from "@angular/router";
+import {FeedItemComponent} from "./components/feed-item/feed-item.component";
 
 
 @NgModule({
@@ -10,10 +11,12 @@ import {RouterModule} from "@angular/router";
     RouterModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    FeedItemComponent
   ],
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FeedItemComponent
   ]
 })
 export class SharedModule { }

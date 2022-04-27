@@ -23,9 +23,8 @@ export const articlesByAuthor$ = (author:string) => articleStore.pipe(selectMany
 export const hasArticle = (id:string) => articleStore.query(hasEntity(id));
 export const articleById$ = (id:string) => articleStore.pipe(selectEntity(id));
 
-
 /*
- * Article Mutations
+ * Article mutations
  */
 export function setArticles(articles: ArticleModel[]) {
   articleStore.update(
