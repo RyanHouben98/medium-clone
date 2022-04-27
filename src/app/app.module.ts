@@ -8,19 +8,13 @@ import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {DataService} from "./core/services/data.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxEditorModule} from "ngx-editor";
-import {RegisterComponent} from "./components/register/register.component";
-import {LoginComponent} from "./components/login/login.component";
 import {DatePipe} from "@angular/common";
 import {ArticleModule} from "./modules/article/article.module";
 import {FeedModule} from "./modules/feed/feed.module";
-import {CommentModule} from "./modules/comment/comment.module";
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +23,6 @@ import {CommentModule} from "./modules/comment/comment.module";
     SharedModule,
     ArticleModule,
     FeedModule,
-    CommentModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     ReactiveFormsModule,
     NgxEditorModule,
