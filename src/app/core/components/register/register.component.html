@@ -1,17 +1,17 @@
 <h3>Sign up</h3>
 <hr />
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="row mb-3">
     <div class="col-md-6 col-sm-12">
       <div class="form-group">
         <label class="form-label">First name</label>
-        <input class="form-control" placeholder="John" type="text" formControlName="firstName" />
+        <input class="form-control" placeholder="John" type="text" />
       </div>
     </div>
     <div class="col-md-6 col-sm-12">
       <div class="form-group">
         <label class="form-label">Last name</label>
-        <input class="form-control" placeholder="Doe" type="text" formControlName="lastName" />
+        <input class="form-control" placeholder="Doe" type="text" />
       </div>
     </div>
   </div>

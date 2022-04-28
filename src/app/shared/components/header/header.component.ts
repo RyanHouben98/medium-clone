@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Observable} from "rxjs";
-import {signOutUser, user$} from "../../../core/repositories/auth.repository";
+import {user$} from "../../../core/repositories/auth.repository";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,11 @@ import {signOutUser, user$} from "../../../core/repositories/auth.repository";
 export class HeaderComponent {
   user: Observable<any> = user$
 
+  constructor(
+    private readonly authService: AuthService
+  ) { }
+
   logOut() : void {
-    signOutUser()
+    this.authService.logout();
   }
 }

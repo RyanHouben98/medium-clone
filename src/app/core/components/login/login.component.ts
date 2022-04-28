@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {signInUser} from "../../repositories/auth.repository";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit{
   constructor(
     private readonly router: Router,
     private readonly route: ActivatedRoute,
+    private readonly authService: AuthService,
   ) { }
 
   ngOnInit() : void {
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() : void {
-    signInUser(this.form.controls['email'].value)
-    this.router.navigateByUrl(this.returnUrl);
+    let loginSubmitInfo = {
+      emailAddress: this.form.controls['email'].value,
+      password: this.form.controls['password'].value
+    }
+
+    this.authService.login(loginSubmitInfo.emailAddress, loginSubmitInfo.password)
   }
 }
