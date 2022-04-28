@@ -1,6 +1,6 @@
-<div class="card mb-2 mt-2">
+<div class="card shadow mb-4 mt-4">
   <div class="card-header">
-    <a [routerLink]="'/' + article.author">{{article.author}}</a>, {{article.createDate}}
+    <a [routerLink]="'/' + article.author">{{article.author}}</a>, {{article.createDate | date}}
   </div>
   <div class="card-body">
     <h3 class="card-title">{{article.headline}}</h3>

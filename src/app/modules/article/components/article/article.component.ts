@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {ArticleModel} from "../../../../core/models/article/article-model";
 import {ActivatedRoute} from "@angular/router";
-import {articleById$} from "../../../../core/repositories/article.repository";
+import {articleById$, setCurrentArticle} from "../../../../core/repositories/article.repository";
 
 @Component({
   selector: 'app-article',
@@ -22,5 +22,8 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() : void {
     this.article = articleById$(this.id)
+    this.article.subscribe(
+      result => setCurrentArticle(result)
+    )
   }
 }

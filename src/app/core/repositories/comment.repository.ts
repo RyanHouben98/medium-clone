@@ -1,7 +1,7 @@
 import {createStore} from "@ngneat/elf";
 import {
-  getEntitiesCountByPredicate, selectAllEntities, selectMany,
-  selectManyByPredicate,
+  addEntities,
+  selectAllEntities,
   setEntities,
   withEntities,
 } from "@ngneat/elf-entities";
@@ -23,5 +23,9 @@ export const currentComments$ = commentStore.pipe(selectAllEntities());
 export function setComments(comments: CommentModel[]) {
   commentStore.reset();
   commentStore.update(setEntities(comments));
+}
+
+export function addComment(comment: CommentModel) {
+  commentStore.update(addEntities(comment))
 }
 

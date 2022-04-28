@@ -1,6 +1,6 @@
 <div class="card mb-2">
   <div class="card-header">
-    {{comment.author}}
+    <a [routerLink]="'/' + comment.author">{{comment.author}}</a>
   </div>
   <div class="card-body">
     {{comment.commentBody}}

@@ -1,7 +1,7 @@
-<form class="mb-2">
+<form class="mb-2" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group mb-2">
     <label class="form-label">Create a comment</label>
-    <textarea class="form-control"></textarea>
+    <textarea class="form-control" formControlName="commentBody"></textarea>
   </div>
-  <button class="btn btn-success">Create</button>
+  <button class="btn btn-success" type="submit">Create</button>
 </form>
