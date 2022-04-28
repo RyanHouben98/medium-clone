@@ -11,6 +11,7 @@ export class ArticleMapper extends Mapper<ArticleEntity, ArticleModel> {
       author: param.author,
       createDate: param.createDate,
       articleBody: param.articleBody,
+      comments: param.comments
     }
   }
 
@@ -21,7 +22,8 @@ export class ArticleMapper extends Mapper<ArticleEntity, ArticleModel> {
       description: param.description,
       author: param.author,
       createDate: param.createDate,
-      articleBody: param.articleBody
+      articleBody: param.articleBody,
+      comments: param.comments
     }
   }
 

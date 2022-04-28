@@ -10,7 +10,7 @@ import {addArticle, setArticles} from "../repositories/article.repository";
 })
 export class ArticleService {
 
-  private readonly apiUrl: string = 'api/articles/';
+  private readonly apiUrl: string = 'https://626a762453916a0fbdfbf158.mockapi.io/api/v1/articles';
   private readonly mapper = new ArticleMapper();
 
   constructor(

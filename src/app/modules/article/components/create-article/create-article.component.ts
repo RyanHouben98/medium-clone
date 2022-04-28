@@ -58,7 +58,8 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
       description: this.form.controls['description'].value,
       articleBody: toHTML(this.form.controls['editorControl'].value),
       createDate: this.datePipe.transform(Date.now(), 'MM-dd-yyyy'),
-      author: this.userName
+      author: this.userName,
+      comments: []
     }
 
     this.articleService.createArticle(newArticle).subscribe()

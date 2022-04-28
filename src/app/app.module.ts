@@ -4,8 +4,6 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "./app-routing.module";
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
-import {DataService} from "./core/services/data.service";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgxEditorModule} from "ngx-editor";
 import {DatePipe} from "@angular/common";
@@ -34,7 +32,6 @@ function AppInitializer(authService: AuthService) : () => Observable<any> {
     SharedModule,
     ArticleModule,
     FeedModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
     ReactiveFormsModule,
     NgxEditorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

@@ -1,3 +1,5 @@
+import {CommentEntity} from "../comment/comment-entity";
+
 export interface ArticleEntity {
   id: string;
   headline: string;
@@ -5,4 +7,5 @@ export interface ArticleEntity {
   articleBody: string;
   author: string;
   createDate: string;
+  comments: CommentEntity[]
 }

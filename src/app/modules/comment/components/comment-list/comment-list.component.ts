@@ -1,10 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs";
-import {ArticleModule} from "../../../article/article.module";
-import {commentsByArticleId$} from "../../../../core/repositories/comment.repository";
+import {Observable, of} from "rxjs";
 import {CommentModel} from "../../../../core/models/comment/comment-model";
 import {isLoggedIn$} from "../../../../core/repositories/auth.repository";
+import {articleById$} from "../../../../core/repositories/article.repository";
+import {ArticleModel} from "../../../../core/models/article/article-model";
 
 @Component({
   selector: 'app-comment-list',
@@ -18,12 +18,14 @@ export class CommentListComponent implements OnInit {
   public isAuthenticated: Observable<boolean> = isLoggedIn$;
 
   constructor(
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
   ) {
     this.articleId = this.route.snapshot.paramMap.get("id")
   }
 
   public ngOnInit() : void {
-    this.comments = commentsByArticleId$(this.articleId)
+    articleById$(this.articleId).subscribe((result:ArticleModel) => {
+      this.comments = of(result.comments)
+    })
   }
 }

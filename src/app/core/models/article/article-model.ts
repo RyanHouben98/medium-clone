@@ -1,3 +1,5 @@
+import {CommentModel} from "../comment/comment-model";
+
 export interface ArticleModel {
   id: string;
   headline: string;
@@ -5,4 +7,5 @@ export interface ArticleModel {
   articleBody: string;
   author: string;
   createDate: string;
+  comments: CommentModel[]
 }
