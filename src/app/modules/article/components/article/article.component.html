@@ -1,7 +1,7 @@
 <p>
   <span class="fw-light">{{(article | async)?.author}}</span>
   <br/>
-  <span class="fw-lighter">{{(article | async)?.createDate}}</span>
+  <span class="fw-lighter">{{(article | async)?.createDate | date}}</span>
 </p>
 <hr />
 <h1>{{(article | async)?.headline}}</h1>

@@ -1,6 +1,6 @@
 import {createStore} from "@ngneat/elf";
 import {
-  getEntitiesCountByPredicate,
+  getEntitiesCountByPredicate, selectAllEntities, selectMany,
   selectManyByPredicate,
   setEntities,
   withEntities,
@@ -15,13 +15,13 @@ const commentStore = createStore(
 /*
  * Comment queries
  */
-export const commentsByArticleId$ = (id:string) => commentStore.pipe(selectManyByPredicate((entity:CommentModel) => entity.articleId === id))
-export const countCommentsByArticleId$ = (id:string) => commentStore.query(getEntitiesCountByPredicate((entity:CommentModel) => entity.articleId === id))
+export const currentComments$ = commentStore.pipe(selectAllEntities());
 
 /*
  * Comment mutations
  */
 export function setComments(comments: CommentModel[]) {
+  commentStore.reset();
   commentStore.update(setEntities(comments));
 }
 

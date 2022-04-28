@@ -9,15 +9,16 @@ import {setComments} from "../repositories/comment.repository";
   providedIn: 'root'
 })
 export class CommentService {
-  private readonly apiUrl: string = 'api/comments/';
+
+  private readonly apiUrl: string = 'https://626a762453916a0fbdfbf158.mockapi.io/api/v1/articles/';
   private readonly mapper = new CommentMapper();
 
   constructor(
     private readonly httpClient: HttpClient,
   ) { }
-
-  public getAllComments() : Observable<void> {
-    return this.httpClient.get<CommentEntity[]>(this.apiUrl)
+  
+  public getCommentsByArticle(id: string) : Observable<void> {
+    return this.httpClient.get<CommentEntity[]>(this.apiUrl + id + '/comments')
       .pipe(map(result => result.map(this.mapper.mapFrom)))
       .pipe(map(setComments))
   }

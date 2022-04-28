@@ -7,5 +7,4 @@ export interface ArticleEntity {
   articleBody: string;
   author: string;
   createDate: string;
-  comments: CommentEntity[]
 }

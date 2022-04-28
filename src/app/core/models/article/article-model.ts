@@ -7,5 +7,4 @@ export interface ArticleModel {
   articleBody: string;
   author: string;
   createDate: string;
-  comments: CommentModel[]
 }
